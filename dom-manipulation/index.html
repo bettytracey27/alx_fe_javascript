@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Quote Generator</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; padding: 2rem; line-height: 1.5; }
+    h1 { margin-top: 0; }
+    .quote-box { border: 1px solid #ddd; padding: 1rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 1rem; min-height: 80px; display: flex; align-items: center; }
+    .quote-text { font-size: 1.25rem; margin: 0; }
+    .quote-category { margin: 0.25rem 0 0; font-size: 0.95rem; opacity: 0.8; }
+    .controls { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+    .add-quote { display: grid; gap: 0.5rem; max-width: 540px; }
+    input[type="text"] { padding: 0.5rem; border: 1px solid #ccc; border-radius: 8px; width: 100%; }
+    button { padding: 0.6rem 1rem; border-radius: 999px; border: 1px solid #ddd; background: white; cursor: pointer; }
+    button:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    #message { min-height: 1.2em; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Quote Generator</h1>
+
+  <div id="quoteDisplay" class="quote-box">Click "Show New Quote" to begin.</div>
+
+  <div class="controls">
+    <button id="newQuote">Show New Quote</button>
+  </div>
+
+  <h2>Add a Quote</h2>
+  <div class="add-quote">
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button onclick="addQuote()">Add Quote</button>
+    <div id="message" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
