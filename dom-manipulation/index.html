@@ -15,12 +15,15 @@
     input[type="text"], input[type="file"], select { padding: 0.5rem; border: 1px solid #ccc; border-radius: 8px; width: 100%; }
     button { padding: 0.6rem 1rem; border-radius: 999px; border: 1px solid #ddd; background: white; cursor: pointer; }
     button:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    #message { min-height: 1.2em; font-size: 0.95rem; }
+    #message, #serverMessage { min-height: 1.2em; font-size: 0.95rem; color: green; }
   </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
-<div class="controls">
+
+  <div id="serverMessage" role="status" aria-live="polite"></div>
+
+  <div class="controls">
     <label for="categoryFilter">Filter by Category:</label>
     <select id="categoryFilter" onchange="filterQuotes()">
       <option value="all">All Categories</option>
@@ -43,4 +46,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
