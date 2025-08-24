@@ -12,7 +12,7 @@
     .quote-category { margin: 0.25rem 0 0; font-size: 0.95rem; opacity: 0.8; }
     .controls { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
     .add-quote { display: grid; gap: 0.5rem; max-width: 540px; }
-    input[type="text"], input[type="file"] { padding: 0.5rem; border: 1px solid #ccc; border-radius: 8px; width: 100%; }
+    input[type="text"], input[type="file"], select { padding: 0.5rem; border: 1px solid #ccc; border-radius: 8px; width: 100%; }
     button { padding: 0.6rem 1rem; border-radius: 999px; border: 1px solid #ddd; background: white; cursor: pointer; }
     button:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
     #message { min-height: 1.2em; font-size: 0.95rem; }
@@ -20,14 +20,17 @@
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
-
-  <div id="quoteDisplay" class="quote-box">Click "Show New Quote" to begin.</div>
-
-  <div class="controls">
+<div class="controls">
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+    </select>
     <button id="newQuote">Show New Quote</button>
     <button id="exportQuotes">Export Quotes as JSON</button>
     <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
   </div>
+
+  <div id="quoteDisplay" class="quote-box">Click "Show New Quote" to begin.</div>
 
   <h2>Add a Quote</h2>
   <div class="add-quote">
@@ -40,3 +43,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
